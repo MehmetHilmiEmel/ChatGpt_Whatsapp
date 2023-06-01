@@ -56,7 +56,7 @@ for file_name in files:
 
 
 # Read JSON file contents into a string variable
-with open('whatsapp_messages.json', 'r') as f:
+with open('whatsapp_messages.json', 'r', encoding="utf-8") as f:
     json_string = f.read()
 
 # Strip leading/trailing whitespace from the string
@@ -73,5 +73,5 @@ json_string="["+json_string+"]"
 json_object = json.loads(json_string)
 
 # Write the JSON object back to the file
-with open('Prepared.json', 'w') as f:
+with open('Prepared.json', 'w',encoding="utf-8") as f:
     json.dump(json_object, f, indent=4)

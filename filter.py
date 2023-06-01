@@ -13,7 +13,7 @@ emoji_pattern = re.compile("["
                            "]+", flags=re.UNICODE)
 url_pattern = re.compile(r"http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+")
 # Open original file and new file
-non_latin_pattern = re.compile(r"[^\x00-\x7F]+")
+
 iban_pattern = re.compile(r"\b(?:TR|GR)\d{2}\s?(?:\d{4}\s?){5}\s?\d{2}\b")
 
 # Create filtered folder if it does not exist
@@ -30,7 +30,7 @@ for file_name in os.listdir("Whatsapp mesajları"):
     # Iterate over lines in original file
         for line in original_file:
             # If line matches unwanted pattern or contains ".vcf" extension, skip it
-            if unwanted_pattern.match(line) or ".vcf" in line or url_pattern.search(line) or non_latin_pattern.search(line) or iban_pattern.search(line):
+            if unwanted_pattern.match(line) or ".vcf" in line or url_pattern.search(line) or iban_pattern.search(line):
                 continue
 
             
